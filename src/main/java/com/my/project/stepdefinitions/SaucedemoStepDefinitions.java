@@ -1,11 +1,11 @@
-package com.my.project.stepdefinitions;
+package com.my.project.stepdefinitions; // paket kotorye soderjit paket/ classy i pomoghaet ih sgrupperovati
 
-import com.my.project.hooks.Hooks;
+import com.my.project.hooks.Hooks; //importiruet classy nahodeashieasea v drughom package//internal
 import com.my.project.pages.CartPage;
 import com.my.project.pages.DashboardPage;
 import com.my.project.pages.LoginPage;
 import com.my.project.util.WaitersConfig;
-import io.cucumber.java.en.And;
+import io.cucumber.java.en.And; // import from external libriries
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -13,11 +13,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.slf4j.LoggerFactory; //imported classy
 
 import java.time.Duration;
 
-import static java.lang.String.format;
+import static java.lang.String.format; // imported staticeskie methody
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
@@ -96,3 +96,14 @@ public class SaucedemoStepDefinitions {
         assertThat(webDriver.getCurrentUrl(), containsString(page));
     }
 }
+
+
+//1. Access modifier - modificator dostupa
+//1.1 public
+//1.2 private otnositsea toliko k classu k kotoromu ono otnositsea, nelizea modifitsirovati iz vne
+// 1.3 protected
+//1.4 default me pishitsea
+
+
+//static - idicator rasprostanenie, dlea vseh obiektov classa public static int age = 15 -primer peremennoi
+// public static int getAge () {method body} method

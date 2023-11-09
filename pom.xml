@@ -96,3 +96,5 @@
     </dependencies>
 
 </project>
+
+        <!--pom eto file kotoryi soderjit nastroiki v dannom proekte. pom skacivaet dependinces iz maven repository i dobavleaet ih v external library. As a result ty mojeshi importiti vneshnie classy i package-->
