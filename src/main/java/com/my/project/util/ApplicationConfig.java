@@ -8,10 +8,10 @@ import java.io.IOException;
 import java.util.Properties;
 
 
-public class WaitersConfig {
-    private static final String PROPERTIES_FILE = "src/main/resources/properties/waiters.properties";
+public class ApplicationConfig {
+    private static final String PROPERTIES_FILE = "src/main/resources/properties/application.properties";
     private static final Properties PROPERTIES;
-    private static final Logger LOG = LoggerFactory.getLogger(WaitersConfig.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ApplicationConfig.class);
 
     static {
         PROPERTIES = new Properties();
@@ -25,5 +25,9 @@ public class WaitersConfig {
 
     public static int getElementIsDisplayed() {
        return Integer.parseInt(PROPERTIES.getProperty("element.is.displayed"));
+    }
+
+    public static String getUrl(String endpoint) {
+        return PROPERTIES.getProperty("url.for." + endpoint);
     }
 }

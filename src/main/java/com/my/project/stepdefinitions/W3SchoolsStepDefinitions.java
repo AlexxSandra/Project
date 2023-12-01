@@ -16,14 +16,14 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
 
-public class GoogleTranslateStepDefinitions {
+public class W3SchoolsStepDefinitions {
 
     private RequestSpecification requestSpecification;
     private Response response;
 
-    private static final Logger LOG = LoggerFactory.getLogger(GoogleTranslateStepDefinitions.class);
+    private static final Logger LOG = LoggerFactory.getLogger(W3SchoolsStepDefinitions.class);
 
-    public GoogleTranslateStepDefinitions() {
+    public W3SchoolsStepDefinitions() {
     }
 
     ///GET
@@ -48,9 +48,7 @@ public class GoogleTranslateStepDefinitions {
 
     @And("response body contains the following text$")
     public void responseBodyContainsTheFollowingTextEnUSLtr(String expectedResponseBody) {
-        final String actualResponseBody = response
-                .getBody()
-                .asString();
+        final String actualResponseBody = response.getBody().asString();
         assertThat(actualResponseBody, containsString(expectedResponseBody));
         LOG.info("Expected response body matches with actual response body!");
     }

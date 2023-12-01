@@ -1,41 +1,50 @@
 package com.my.project.hooks;
 
-import com.my.project.pages.CartPage;
-import com.my.project.pages.DashboardPage;
-import com.my.project.pages.LoginPage;
+import com.my.project.pages.*;
+import com.my.project.util.MyWebDriver;
+import com.my.project.util.ScenarioContext;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.logging.LogEntries;
+import org.openqa.selenium.logging.LogEntry;
+import org.openqa.selenium.logging.LogType;
 
 public class Hooks {
     private static WebDriver webDriver;
+    private static ScenarioContext scenarioContext;
     private static LoginPage loginPage;
     private static DashboardPage dashboardPage;
     private static CartPage cartPage;
+    private static CheckOutYourInformation checkOutYourInformationPage;
+    private static CheckoutOverview checkoutOverviewPage;
+    private static CheckoutCompletePage checkoutCompletePage;
 
-    private Hooks() {
+    private Hooks() { //private citob ne initsializirovati ne sozdavati konstruktor
     }
 
-    @Before
+    @Before  //vypolneaetsea kajdyi raz do togo kak vypolneaem kakoito step
     public static void setUp() {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/driver/chromedriver.exe");
-        ChromeOptions chromeOptions = new ChromeOptions();
-        webDriver = new ChromeDriver(chromeOptions);
-        loginPage = new LoginPage(webDriver);
+        webDriver = MyWebDriver.getDriver();//kajdyi raz pered novym stepom my sozdaeom novyi web driver
+        loginPage = new LoginPage(webDriver);//sozdali novyi obiect dlea
         dashboardPage = new DashboardPage(webDriver);
         cartPage = new CartPage(webDriver);
+        checkOutYourInformationPage = new CheckOutYourInformation(webDriver);
+        checkoutOverviewPage = new CheckoutOverview(webDriver);
+        checkoutCompletePage = new CheckoutCompletePage(webDriver);
+        scenarioContext = ScenarioContext.getInstance();
+
     }
 
-    @After
+    @After//zakryti webbrowser
     public static void tearDown() {
-        webDriver.quit();
-    }
+        webDriver.close();
+        MyWebDriver.closeDriver();
+        scenarioContext.clearContext();
 
-    public static WebDriver getWebDriver() {
-        return webDriver;
-    }
+    } //zakryti step kogda on zakoncilsea
 
     public static LoginPage getLoginPage() {
         return loginPage;
@@ -45,7 +54,13 @@ public class Hooks {
         return dashboardPage;
     }
 
-    public static CartPage getCartPage() {
-        return cartPage;
-    }
+    public static CartPage getCartPage() { return cartPage; }
+
+    public static CheckOutYourInformation checkOutYourInformationPage() { return checkOutYourInformationPage; }
+
+    public static CheckoutOverview checkOutOverviewPage () {return checkoutOverviewPage;}
+
+    public static CheckoutCompletePage checkoutCompletePage () {return checkoutCompletePage;}
+
+
 }
