@@ -17,3 +17,6 @@ import org.junit.runner.RunWith;
 class Runner {
 
 }
+
+//TODO otdelinye
+// coockie dlea api, cito b nebylo url

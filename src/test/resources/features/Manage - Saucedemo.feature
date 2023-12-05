@@ -55,7 +55,7 @@ Feature: Manage - Saucedemo
       When user clicks on checkout button
       And enters credentials "Alex" "Sandra" "12345"
       And user clicks continue button
-      And user clicks on Finish button
+      And user clicks finish button
       Then order is completed with following success message: "Thank you for your order!"
 
 

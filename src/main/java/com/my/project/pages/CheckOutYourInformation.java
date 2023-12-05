@@ -19,7 +19,7 @@ public class CheckOutYourInformation {
 
     public void enterLastName(String lastname) { driver.findElement(lastName).sendKeys(lastname); }
 
-    public void enterZipPostalCode() {driver.findElement(zipPostalCode).getText();}
+    public void enterZipPostalCode(String zipPostalCode) {driver.findElement(this.zipPostalCode).sendKeys(zipPostalCode);}
 
     public void clickContinueButton(){
         driver.findElement(continueButton).click();

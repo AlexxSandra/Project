@@ -13,6 +13,7 @@ public class CheckoutOverview {
     private final By finishButton = By.xpath("//button[@id='finish']");
 
 
+
     public CheckoutOverview (WebDriver driver) { this.driver = driver; } //konstruktor parametr
 
     public String getItemName() {
@@ -28,6 +29,5 @@ public class CheckoutOverview {
     public void clickFinishButton(){
         driver.findElement(finishButton).click();
     }
-
 
 }

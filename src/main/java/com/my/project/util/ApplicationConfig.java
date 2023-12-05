@@ -8,26 +8,26 @@ import java.io.IOException;
 import java.util.Properties;
 
 
-public class ApplicationConfig {
-    private static final String PROPERTIES_FILE = "src/main/resources/properties/application.properties";
-    private static final Properties PROPERTIES;
-    private static final Logger LOG = LoggerFactory.getLogger(ApplicationConfig.class);
+public class ApplicationConfig {//peremenaea tipa class
+    private static final String propertiesFile = "src/main/resources/properties/application.properties";
+    private static final Properties properties;// dobavili class propertiessozdati svoi haracteristiki
+    private static final Logger log = LoggerFactory.getLogger(ApplicationConfig.class);
 
     static {
-        PROPERTIES = new Properties();
-        try (FileInputStream fileInputStream = new FileInputStream(PROPERTIES_FILE)) {
-            PROPERTIES.load(fileInputStream);
-        } catch (IOException e) {
-            LOG.info("Wrong file path or file was renamed");
-            throw new RuntimeException(e);
+        properties = new Properties();
+        try (FileInputStream fileInputStream = new FileInputStream(propertiesFile)) {
+            properties.load(fileInputStream);//citaet svoistva iz file/ fileiNPUTsTReam instrument dlea citenie file
+        } catch (IOException e) {//v sluceae oshibki
+            log.info("Wrong file path or file was renamed");
+            throw new RuntimeException(e);// vyzvati class opisyvaiushii osibku (podhod ErrorHandling)
         }
     }
 
     public static int getElementIsDisplayed() {
-       return Integer.parseInt(PROPERTIES.getProperty("element.is.displayed"));
+       return Integer.parseInt(properties.getProperty("element.is.displayed"));//dostati propreties
     }
 
     public static String getUrl(String endpoint) {
-        return PROPERTIES.getProperty("url.for." + endpoint);
+        return properties.getProperty("url.for." + endpoint);// is url delaet string
     }
 }

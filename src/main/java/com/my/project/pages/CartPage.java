@@ -13,13 +13,12 @@ public class CartPage {
     private final By removeButton = By.xpath("//button[@id='remove-sauce-labs-backpack']");
     private final By checkOutButton = By.xpath("//button[@id='checkout']");
 
+    //TODO id selectors     private final By removeButton = By.id("remove-sauce-labs-backpack");
     public CartPage (WebDriver driver) {
         this.driver = driver;
     }
 
-    public String getItemName() {
-        return driver.findElement(itemName).getText();
-    }
+    public String getItemName() { return driver.findElement(itemName).getText();}
 
     public String getItemDescription() {
         return driver.findElement(itemDescription).getText();

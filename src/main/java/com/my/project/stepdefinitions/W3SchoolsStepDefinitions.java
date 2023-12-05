@@ -27,7 +27,7 @@ public class W3SchoolsStepDefinitions {
     }
 
     ///GET
-    @Given("The following GET API endpoint {string}")
+    @Given("The following GET API endpoint {string}")//provereaem cito link url esti!!
     public void theFollowingGETAPIEndpointOne(String url) {
         requestSpecification = given().baseUri(url);
         LOG.info(format("User has accessed the following page - {%s}", url));
@@ -35,7 +35,7 @@ public class W3SchoolsStepDefinitions {
 
     @When("GET request is sent")
     public void getRequestIsSent() {
-        response = requestSpecification.get();
+        response = requestSpecification.get();// prisvoila peremnnoi povedenie, vyzvov method get
         LOG.info("User sends a get request!");
     }
 
@@ -55,10 +55,10 @@ public class W3SchoolsStepDefinitions {
 
     ///POST
     @Given("The following POST API endpoint {string}")
-    public void theFollowingPOSTAPIEndpointOne(String url) {
+    public void theFollowingPOSTAPIEndpointOne(String url) {//signatura methoda(argument)
         requestSpecification = given()
                 .baseUri(url)
-                .contentType(ContentType.MULTIPART)
+                .contentType(ContentType.MULTIPART) //TODO Multipart
                 .multiPart("code", "public class Main {\n" +
                         "  public static void main(String[] args) {\n" +
                         "    System.out.println(\"Hello World\");\n" +
